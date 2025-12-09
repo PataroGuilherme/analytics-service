@@ -38,7 +38,7 @@ session = boto3.Session(
 
 sqs_client = session.client(
     "sqs",
-    endpoint_url=SQS_QUEUE_URL.split("/queue/")[0],  # http://sqs-local:9324
+    endpoint_url=os.getenv("AWS_SQS_ENDPOINT", "http://sqs-local:9324"),  # http://sqs-local:9324
     config=boto_config
 )
 
